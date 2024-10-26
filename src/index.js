@@ -5,17 +5,14 @@ import "./index.css";
 import { books } from "./books";
 import Book from "./Book";
 
-function BookList() {
+const BookList = () => {
   return (
-    <>
-      <h1>amazon best sellers</h1>
-      <section className="booklist">
-        {books.map((book) => {
-          return <Book {...book} key={book.id} />;
-        })}
-      </section>
-    </>
+    <section className="booklist">
+      {books.map((book, index) => {
+        return <Book {...book} key={book.id} number={index} />;
+      })}
+    </section>
   );
-}
+};
 
 createRoot(document.getElementById("root")).render(<BookList />);
